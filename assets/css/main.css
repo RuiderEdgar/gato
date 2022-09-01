@@ -1,0 +1,163 @@
+@import"./root.css";
+:root {
+    --blue-shadow-clear: rgba(24, 133, 194, 0.3);
+    --blue-shadow-strong: rgba(24, 133, 194, 0.4);
+    --blue-gradient: linear-gradient(to bottom right, #0b404d, #298ea6);
+    --blue-gradient-btn: linear-gradient(to bottom right, rgba(17, 78, 112, 0.974), rgba(24, 132, 194, 0.996));
+    --black-gradient: linear-gradient(to bottom right, #333333, #121212);
+    --box-shadow: 0px 2px 10px rgba(8, 9, 10, 0.3), 0px 4px 20px rgba(0, 0, 0, 0.4);
+    --box-shadow-btn: 0px 2px 10px var(--blue-shadow-clear), 0px 4px 20px var(--blue-shadow-strong);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    min-width: 32rem;
+}
+
+body {
+    height: 100vh;
+    background: var(--blue-gradient);
+    min-width: 320px;
+}
+
+header {
+    display: flex;
+    height: 4rem;
+    background: var(--black-gradient);
+    min-width: 320px;
+    min-height: 35px;
+}
+
+.title {
+    color: white;
+    margin: auto auto;
+    font-size: var(--title);
+}
+
+.container-logo-github {
+    position: static;
+    top: 0;
+    right: 0;
+    border-left: 4rem solid transparent;
+    border-top: 3.5rem solid white;
+    border-bottom: 3rem solid transparent;
+}
+
+.icon-github {
+    width: 2.2rem;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 0;
+    right: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transition: background-position 500ms 0ms;
+    -webkit-transition: background-position 500ms 0ms;
+    -moz-transition: background-position 500ms 0ms;
+    -ms-transition: background-position 500ms 0ms;
+    -o-transition: background-position 500ms 0ms;
+}
+
+.icon-github:hover {
+    background: linear-gradient(to bottom right, #0b404d, #298ea6);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-position: 2rem;
+}
+
+
+/*------------------Tablero----------------*/
+
+.container-tablero {
+    background-color: var(--backgorund-color-tablero);
+    margin: 2rem 2rem;
+    height: 28rem;
+    box-shadow: var(--box-shadow);
+}
+
+.tablero {
+    height: 100%;
+    width: 100%;
+    min-width: 280px;
+    background-color: #d4d106;
+}
+
+.container-btn {
+    display: flex;
+}
+
+
+/*Botones: 2 jugadores - bot*/
+
+.btn-start {
+    margin: auto auto;
+    width: 11rem;
+    height: 3.5rem;
+    min-width: 93px;
+    min-height: 28px;
+    font-size: var(--details);
+    box-shadow: var(--box-shadow);
+    background: var(--blue-gradient-btn);
+    border: 1px solid rgba(24, 133, 194);
+    color: white;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 2s 100ms, background-position 1s ease, font-size 100ms 0ms;
+    -webkit-transition: color 2s 100ms, background-position 1s ease, font-size 100ms 0ms;
+    -moz-transition: color 2s 100ms, background-position 1s ease, font-size 100ms 0ms;
+    -ms-transition: color 2s 100ms, background-position 1s ease, font-size 100ms 0ms;
+    -o-transition: color 2s 100ms, background-position 1s ease, font-size 100ms 0ms;
+}
+
+.btn-start:hover {
+    background-position: 9.4rem;
+}
+
+.btn-start:active {
+    font-size: 1.45rem;
+}
+
+*----------Casillas-----------*/ .game {
+    display: none;
+    background-color: var(--board-color);
+    padding: 1rem 0 1.5rem;
+    border-radius: 15px 15px 10px 10px;
+    margin: 3rem 5px;
+    /*TODOajustarelmargenderechoizquierdo*/
+    grid-template: repeat(6, 1fr) / repeat(7, 1fr);
+    column-gap: 0px;
+    row-gap: 6px;
+    justify-items: center;
+    -webkit-border-radius: 15px 15px 10px 10px;
+    -moz-border-radius: 15px 15px 10px 10px;
+    -ms-border-radius: 15px 15px 10px 10px;
+    -o-border-radius: 15px 15px 10px 10px;
+}
+
+.casilla {
+    border: none;
+    height: 26px;
+    width: 26px;
+    background: white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}

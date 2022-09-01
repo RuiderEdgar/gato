@@ -5,11 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gato</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="./js/main.js" type="module"></script>
 </head>
 
 <body>
+    <header>
+        <h1 class="title">Gato</h1>
+        <div class="container-logo-github">
+            <a href="https://github.com/RuiderEdgar/gato">
+                <img class="icon-github" src="./assets/resources/icons/github.png" alt="icono github">
+            </a>
+        </div>
+    </header>
+    <main class="main">
 
+        <!--------- Tablero ---------->
+        <section class="container-tablero">
+            <div class="tablero container-btn" id="tablero">
+                <!-- Bottones -->
+                <button class="btn-start" id="twoPlayers">Dos Jugadores</button>
+                <button class="btn-start" id="bot">Bot</button>
+                <!-- Header tablero -->
+                <!-- <div class="header-tablero">
+                    <button class="retry boton" id="btn-retry">
+                        <img class="retry-icon" src="./assets/resources/icons/reload.png" alt="retry-icon">
+                    </button>
+                    <p class="turno" id="turno">Red player start.</p>
+                </div> -->
+                <!-- Juego -->
+                <div class="game" id="game">
+
+                </div>
+            </div>
+        </section>
+        <!--------- Tablero ---------->
+
+        <!--------- Score ---------->
+        <!-- <section class="score">
+
+            <div class="container-score">
+                <div class="container-team">
+                    <span class="team red">Red Player</span>
+                </div>
+                <div class="container-team">
+                    <span class="team yellow">Yellow Player</span>
+                </div>
+                <div class="container-team">
+                    <span class="team red" id="redScore">0</span>
+                </div>
+                <div class="container-team">
+                    <span class="team yellow" id="yellowScore">0</span>
+                </div>
+            </div>
+            <div class="container-btn-reboot">
+                <button class="boton btn-reboot">
+                    <img class="score-icon" src="./assets/resources/icons/score-board.png" alt="reboot">
+                </button>
+                <p class="txt txt-reboot">Reboot Score</p>
+            </div>
+        </section> -->
+        <!--------- Score ---------->
+    </main>
 </body>
 
 </html>
