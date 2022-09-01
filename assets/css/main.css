@@ -91,10 +91,40 @@ header {
     width: 100%;
     min-width: 280px;
     background-color: #d4d106;
+    display: flex;
 }
 
 .container-btn {
     display: flex;
+}
+
+
+/*dispocision de las casillas*/
+
+.game {
+    display: none;
+    grid-template-columns: repeat(3, 5rem);
+    gap: 1rem;
+    width: fit-content;
+    height: fit-content;
+    margin: auto auto;
+    background: var(--blue-gradient-btn);
+    border: #0b404d 1px solid;
+}
+
+.victory {
+    display: none;
+    margin: auto auto;
+    font-size: var(--subtitle);
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
 }
 
 
@@ -152,12 +182,14 @@ header {
 
 .casilla {
     border: none;
-    height: 26px;
-    width: 26px;
-    background: white;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+    height: 6rem;
+    width: 5rem;
+    background: #d4d106;
+    cursor: pointer;
+    background-size: auto;
+}
+
+.imageTurn {
+    width: 3rem;
+    height: 3rem;
 }
