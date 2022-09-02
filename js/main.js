@@ -9,7 +9,15 @@ window.addEventListener('load', () => {
         sessionStorage.setItem('ingreso', 1);
     };
     document.querySelector('.header-tablero').style.display = 'none';
+    document.querySelector('#redScore').innerHTML = sessionStorage.getItem('red');
 
+    document.querySelector('#blueScore').innerHTML = sessionStorage.getItem('blue');
+
+    if (parseInt(sessionStorage.getItem('red')) > 0 || parseInt(sessionStorage.getItem('blue')) > 0) {
+        document.querySelector('.container-btn-reboot').style.display = 'flex';
+
+
+    }
     const buildTablero = () => {
 
         var divGame = document.querySelector('#game');
@@ -58,6 +66,14 @@ window.addEventListener('load', () => {
         btnBot.style.display = 'none';
     });
 
+
+    //Reset score
+    const resetbtn = document.querySelector('#resetScore');
+    resetbtn.addEventListener('click', () => {
+        sessionStorage.setItem('red', 0);
+        sessionStorage.setItem('blue', 0);
+        window.location.reload();
+    })
 
 
 

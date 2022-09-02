@@ -233,3 +233,82 @@ header {
     margin-top: 1rem;
     font-weight: bold;
 }
+
+
+/*------------------Score------------------*/
+
+.score {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container-score {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    background: inherit;
+    background-color: rgba(61, 30, 30, 0.15);
+    backdrop-filter: blur(1rem);
+}
+
+.team {
+    color: white;
+    font-size: var(--body-text);
+}
+
+.redPlayer {
+    background-color: var(--red-player) !important;
+    color: white !important;
+    font-weight: bold;
+    padding: 0 1rem;
+    border-radius: 5px;
+}
+
+.bluePlayer {
+    background-color: var(--yellow-player) !important;
+    color: black;
+    font-weight: bold;
+    padding: 0 1rem;
+    border-radius: 5px;
+}
+
+.draw {
+    color: black;
+    font-size: var(--title) !important;
+    padding: 0 2rem;
+}
+
+.score-icon {
+    width: 4rem;
+    margin: auto;
+}
+
+.container-btn-reboot {
+    display: none;
+    flex-direction: column;
+}
+
+.txt-reboot {
+    margin: auto;
+}
+
+.btn-reboot {
+    display: flex;
+    width: 5rem;
+    height: 5rem;
+    margin: auto;
+    border-radius: 20%;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+}
+
+.txt {
+    font-size: var(--details);
+    font-weight: bold;
+    color: var(--txt-color);
+}

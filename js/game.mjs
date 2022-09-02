@@ -104,43 +104,44 @@ const victoria = (columns) => {
 
 //Para no repetir lo que pasa cuando un jugador gana
 const victoriaRed = () => {
-
-
     document.querySelector('#turno').classList.remove('blue');
     document.querySelector('#turno').classList.add('red');
     document.querySelector('#turno').innerHTML = 'Gana el Rojo';
     var casillas = document.getElementsByClassName('casilla');
+    //Desactivando las demas casillas
     for (let i = 0; i < casillas.length; i++) {
         casillas[i].disabled = true;
         casillas[i].style.cursor = 'default';
-
     }
+    //Aumentando el score
+    sessionStorage.setItem('red', (parseInt(sessionStorage.getItem('red')) + 1));
+    document.querySelector('#redScore').innerHTML = sessionStorage.getItem('red');
+
 
 }
 const victoriaBlue = () => {
-
-
     document.querySelector('#turno').classList.remove('red');
     document.querySelector('#turno').classList.add('blue');
     document.querySelector('#turno').innerHTML = 'Gana el Azul';
     var casillas = document.getElementsByClassName('casilla');
-
+    //Desactivando las demas casillas
     for (let i = 0; i < casillas.length; i++) {
         casillas[i].disabled = true;
         casillas[i].style.cursor = 'default';
-
     }
+    sessionStorage.setItem('blue', (parseInt(sessionStorage.getItem('blue')) + 1));
+    document.querySelector('#blueScore').innerHTML = sessionStorage.getItem('blue');
 }
 const draw = () => {
     document.querySelector('#turno').classList.remove('red');
     document.querySelector('#turno').classList.remove('blue');
+    document.querySelector('#turno').classList.add('draw');
     document.querySelector('#turno').style.display = 'flex';
     document.querySelector('#turno').innerHTML = 'Empate';
     var casillas = document.getElementsByClassName('casilla');
-
+    //Desactivando las demas casillas
     for (let i = 0; i < casillas.length; i++) {
         casillas[i].disabled = true;
         casillas[i].style.cursor = 'default';
-
     }
 }
