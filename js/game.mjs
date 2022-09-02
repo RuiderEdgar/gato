@@ -1,19 +1,19 @@
 export const game = () => {
     const columns = {
         column1: [
-            { casilla: document.querySelector('#no1'), tiro: 'null' },
-            { casilla: document.querySelector('#no4'), tiro: 'null' },
-            { casilla: document.querySelector('#no7'), tiro: 'null' },
+            { casilla: document.querySelector('#no1'), tiro: 'null', noCasilla: 1 },
+            { casilla: document.querySelector('#no4'), tiro: 'null', noCasilla: 4 },
+            { casilla: document.querySelector('#no7'), tiro: 'null', noCasilla: 7 },
         ],
         column2: [
-            { casilla: document.querySelector('#no2'), tiro: 'null' },
-            { casilla: document.querySelector('#no5'), tiro: 'null' },
-            { casilla: document.querySelector('#no8'), tiro: 'null' },
+            { casilla: document.querySelector('#no2'), tiro: 'null', noCasilla: 2 },
+            { casilla: document.querySelector('#no5'), tiro: 'null', noCasilla: 5 },
+            { casilla: document.querySelector('#no8'), tiro: 'null', noCasilla: 8 },
         ],
         column3: [
-            { casilla: document.querySelector('#no3'), tiro: 'null' },
-            { casilla: document.querySelector('#no6'), tiro: 'null' },
-            { casilla: document.querySelector('#no9'), tiro: 'null' },
+            { casilla: document.querySelector('#no3'), tiro: 'null', noCasilla: 3 },
+            { casilla: document.querySelector('#no6'), tiro: 'null', noCasilla: 6 },
+            { casilla: document.querySelector('#no9'), tiro: 'null', noCasilla: 9 },
         ]
     };
     event(columns, columns.column1);
@@ -26,19 +26,30 @@ const event = (columns, column) => {
     for (let i = 0; i < column.length; i++) {
         column[i].casilla.addEventListener('click', () => {
             if (column[i].tiro == 'null') {
+                //Turnos
                 if (localStorage.getItem('tiroRed') == 'true') {
-                    document.querySelector(`#imageTurn${i}`).setAttribute("src", '../assets/resources/icons/tache.png');
+                    column[i].tiro = 'red';
                     localStorage.setItem('tiroRed', false);
                     localStorage.setItem('tiroBlue', true);
                     column[i].casilla.disabled = 'true';
                     column[i].casilla.style.cursor = 'default';
+                    document.querySelector(`#imageTurnTache${column[i].noCasilla}`).style.display = "inline";
+                    document.querySelector('#turno').classList.remove('red')
+                    document.querySelector('#turno').classList.add('blue')
+                    document.querySelector('#turno').innerHTML = 'Turno Circulo'
+
                 } else if (localStorage.getItem('tiroBlue') == 'true') {
-                    document.querySelector(`#imageTurn${i}`).setAttribute("src", '../assets/resources/icons/circulo.png');
                     column[i].tiro = 'blue';
                     localStorage.setItem('tiroRed', true);
                     localStorage.setItem('tiroBlue', false);
-                    column[i].casilla.disabled = 'true';
+                    column[i].casilla.disabled = true;
                     column[i].casilla.style.cursor = 'default';
+
+                    document.querySelector(`#imageTurnCirculo${column[i].noCasilla}`).style.display = "inline";
+                    document.querySelector('#turno').classList.remove('blue');
+                    document.querySelector('#turno').classList.add('red');
+                    document.querySelector('#turno').innerHTML = 'Turno Tache';
+
                 }
                 victoria(columns);
             }
@@ -93,19 +104,43 @@ const victoria = (columns) => {
 
 //Para no repetir lo que pasa cuando un jugador gana
 const victoriaRed = () => {
-    document.querySelector('#game').style.display = 'none';
-    document.querySelector('#victory').style.display = 'flex';
-    document.querySelector('#victory').classList.add('red');
-    document.querySelector('#victory').innerHTML = 'Gana el Rojo';
+
+
+    document.querySelector('#turno').classList.remove('blue');
+    document.querySelector('#turno').classList.add('red');
+    document.querySelector('#turno').innerHTML = 'Gana el Rojo';
+    var casillas = document.getElementsByClassName('casilla');
+    for (let i = 0; i < casillas.length; i++) {
+        casillas[i].disabled = true;
+        casillas[i].style.cursor = 'default';
+
+    }
+
 }
 const victoriaBlue = () => {
-    document.querySelector('#game').style.display = 'none';
-    document.querySelector('#victory').style.display = 'flex';
-    document.querySelector('#victory').classList.add('blue');
-    document.querySelector('#victory').innerHTML = 'Gana el Azul';
+
+
+    document.querySelector('#turno').classList.remove('red');
+    document.querySelector('#turno').classList.add('blue');
+    document.querySelector('#turno').innerHTML = 'Gana el Azul';
+    var casillas = document.getElementsByClassName('casilla');
+
+    for (let i = 0; i < casillas.length; i++) {
+        casillas[i].disabled = true;
+        casillas[i].style.cursor = 'default';
+
+    }
 }
 const draw = () => {
-    document.querySelector('#game').style.display = 'none';
-    document.querySelector('#victory').style.display = 'flex';
-    document.querySelector('#victory').innerHTML = 'Empate';
+    document.querySelector('#turno').classList.remove('red');
+    document.querySelector('#turno').classList.remove('blue');
+    document.querySelector('#turno').style.display = 'flex';
+    document.querySelector('#turno').innerHTML = 'Empate';
+    var casillas = document.getElementsByClassName('casilla');
+
+    for (let i = 0; i < casillas.length; i++) {
+        casillas[i].disabled = true;
+        casillas[i].style.cursor = 'default';
+
+    }
 }

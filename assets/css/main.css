@@ -91,7 +91,6 @@ header {
     width: 100%;
     min-width: 280px;
     background-color: #d4d106;
-    display: flex;
 }
 
 .container-btn {
@@ -120,11 +119,11 @@ header {
 }
 
 .red {
-    color: red;
+    color: #FF5440;
 }
 
 .blue {
-    color: blue;
+    color: rgb(0, 81, 255);
 }
 
 
@@ -189,7 +188,49 @@ header {
     background-size: auto;
 }
 
-.imageTurn {
+.imageTurnCirculo,
+.imageTurnTache {
     width: 3rem;
     height: 3rem;
+}
+
+.game button img {
+    display: none;
+}
+
+
+/* -----------Header tablero------------------- */
+
+.header-tablero {
+    grid-template-columns: repeat(4, 5rem);
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    height: 5rem;
+}
+
+.one {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.two {
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.header-tablero button {
+    height: 4rem;
+    width: 4rem;
+}
+
+.header-tablero button img {
+    height: 3rem;
+    width: 3rem;
+}
+
+.turno {
+    font-size: var(--subtitle);
+    margin-top: 1rem;
+    font-weight: bold;
 }

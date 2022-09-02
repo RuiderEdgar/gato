@@ -8,22 +8,27 @@ window.addEventListener('load', () => {
         // establecer el localstorage en 1 para que no se vuelva a cumplir la condicion
         sessionStorage.setItem('ingreso', 1);
     };
+    document.querySelector('.header-tablero').style.display = 'none';
 
     const buildTablero = () => {
-        var divGame = document.querySelector('#game');
 
+        var divGame = document.querySelector('#game');
         for (let i = 1; i <= 9; i++) {
             var casilla = document.createElement('button');
             casilla.classList.add('casilla');
             casilla.setAttribute("id", `no${i}`);
-            var imageTurn = document.createElement('img');
-            imageTurn.classList.add('imageTurn');
-            imageTurn.setAttribute("id", `imageTurn${i}`);
-            imageTurn.setAttribute("src", '');
-            casilla.appendChild(imageTurn)
+            var imageTurnTache = document.createElement('img');
+            imageTurnTache.classList.add('imageTurnTache');
+            imageTurnTache.setAttribute("id", `imageTurnTache${i}`);
+            imageTurnTache.setAttribute("src", '../assets/resources/icons/tache.png');
+            var imageTurnCirculo = document.createElement('img');
+            imageTurnCirculo.classList.add('imageTurnCirculo');
+            imageTurnCirculo.setAttribute("id", `imageTurnCirculo${i}`);
+            imageTurnCirculo.setAttribute("src", '../assets/resources/icons/circulo.png');
+
+            casilla.appendChild(imageTurnTache);
+            casilla.appendChild(imageTurnCirculo);
             divGame.appendChild(casilla);
-
-
         };
     }
 
@@ -31,6 +36,7 @@ window.addEventListener('load', () => {
     btnTwoPlayers.addEventListener('click', () => {
         btnTwoPlayers.style.display = 'none';
         btnBot.style.display = 'none';
+        document.querySelector('.header-tablero').style.display = 'grid';
         document.querySelector('#tablero').classList.remove('container-btn');
         // document.querySelector('.header-tablero').style.display = 'grid';
         // document.querySelector('.container-btn-reboot').style.display = 'flex';
