@@ -34,6 +34,10 @@ window.addEventListener('load', () => {
 
     const btnTwoPlayers = document.querySelector('#twoPlayers');
     btnTwoPlayers.addEventListener('click', () => {
+        const reloadBtn = document.querySelector('#btn-retry');
+        reloadBtn.addEventListener('click', () => {
+            window.location.reload();
+        })
         btnTwoPlayers.style.display = 'none';
         btnBot.style.display = 'none';
         document.querySelector('.header-tablero').style.display = 'grid';
@@ -53,5 +57,9 @@ window.addEventListener('load', () => {
         btnTwoPlayers.style.display = 'none';
         btnBot.style.display = 'none';
     });
+
+
+
+
 
 })

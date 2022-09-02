@@ -168,7 +168,6 @@ header {
     padding: 1rem 0 1.5rem;
     border-radius: 15px 15px 10px 10px;
     margin: 3rem 5px;
-    /*TODOajustarelmargenderechoizquierdo*/
     grid-template: repeat(6, 1fr) / repeat(7, 1fr);
     column-gap: 0px;
     row-gap: 6px;
