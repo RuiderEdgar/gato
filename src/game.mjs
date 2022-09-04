@@ -27,7 +27,7 @@ const event = (columns, column) => {
         column[i].casilla.addEventListener('click', () => {
             if (column[i].tiro == 'null') {
                 //Turnos
-                if (localStorage.getItem('tiroRed') == 'true') {
+                if (JSON.parse(localStorage.getItem('tiroRed'))) {
                     column[i].tiro = 'red';
                     localStorage.setItem('tiroRed', false);
                     localStorage.setItem('tiroBlue', true);
@@ -38,7 +38,7 @@ const event = (columns, column) => {
                     document.querySelector('#turno').classList.add('blue')
                     document.querySelector('#turno').innerHTML = 'Turno Circulo'
 
-                } else if (localStorage.getItem('tiroBlue') == 'true') {
+                } else if (JSON.parse(localStorage.getItem('tiroBlue'))) {
                     column[i].tiro = 'blue';
                     localStorage.setItem('tiroRed', true);
                     localStorage.setItem('tiroBlue', false);
