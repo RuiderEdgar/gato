@@ -1,4 +1,4 @@
-import { game } from "./game.mjs";
+import { game, gameBot } from "./game.mjs";
 import "./css/main.css";
 import "./assets/icons/github.png";
 import "./assets/icons/reload.png";
@@ -66,14 +66,29 @@ window.addEventListener('load', () => {
         buildTablero();
 
         game();
-
-
     });
 
     const btnBot = document.querySelector('#bot');
     btnBot.addEventListener('click', () => {
         btnTwoPlayers.style.display = 'none';
         btnBot.style.display = 'none';
+        const reloadBtn = document.querySelector('#btn-retry');
+        //Boton reload escuchando
+        reloadBtn.addEventListener('click', () => {
+            window.location.reload();
+        })
+        btnTwoPlayers.style.display = 'none';
+        btnBot.style.display = 'none';
+        document.querySelector('.header-tablero').style.display = 'grid';
+        document.querySelector('#tablero').classList.remove('container-btn');
+        document.querySelector('#game').style.display = 'grid';
+        document.querySelector('#turno').innerHTML = JSON.parse(localStorage.getItem('tiroRed')) ? 'Empieza Tache' : 'Empieza Circulo';
+        JSON.parse(localStorage.getItem('tiroRed')) ?
+            document.querySelector('#turno').classList.add('red') :
+            document.querySelector('#turno').classList.add('blue');
+        buildTablero();
+
+        gameBot();
     });
 
 
