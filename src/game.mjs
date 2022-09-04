@@ -105,8 +105,23 @@ const victoria = (columns) => {
     }
 }
 
+
 //Para no repetir lo que pasa cuando un jugador gana
 const victoriaRed = () => {
+    console.log("Antes del incremento: ", sessionStorage.getItem('red'));
+    sessionStorage.setItem('RedWin', (parseInt(sessionStorage.getItem('RedWin')) + 1));
+    console.log("antes del ajuste a 3 RedWin: ", sessionStorage.getItem('RedWin'))
+
+    if (parseInt(sessionStorage.getItem('RedWin')) === 1) {
+        sessionStorage.setItem('RedWin', 3);
+        console.log("Antes del incremento dentro de if: ", sessionStorage.getItem('red'));
+        sessionStorage.setItem('red', (parseInt(sessionStorage.getItem('red')) + 1));
+        console.log("Despues del incremento dentro del if: ", sessionStorage.getItem('red'));
+
+        document.querySelector('#redScore').innerHTML = sessionStorage.getItem('red');
+    }
+    console.log("Despues del incremento: ", sessionStorage.getItem('red'));
+    console.log("despues del ajuste a 3 RedWin: ", sessionStorage.getItem('RedWin'))
     document.querySelector('#turno').classList.remove('blue');
     document.querySelector('#turno').classList.add('red');
     document.querySelector('#turno').innerHTML = 'Gana el Rojo';
@@ -117,13 +132,19 @@ const victoriaRed = () => {
         casillas[i].style.cursor = 'default';
     }
     //Aumentando el score
-    sessionStorage.setItem('red', (parseInt(sessionStorage.getItem('red')) + 1));
-    document.querySelector('#redScore').innerHTML = sessionStorage.getItem('red');
+
     //game over
     localStorage.setItem('gameOver', true);
 
 }
 const victoriaBlue = () => {
+    sessionStorage.setItem('BlueWin', (parseInt(sessionStorage.getItem('BlueWin')) + 1));
+    //Aumentando el score
+    if (parseInt(sessionStorage.getItem('BlueWin')) === 1) {
+        sessionStorage.setItem('blue', (parseInt(sessionStorage.getItem('blue')) + 1));
+        document.querySelector('#blueScore').innerHTML = sessionStorage.getItem('blue');
+    }
+
     document.querySelector('#turno').classList.remove('red');
     document.querySelector('#turno').classList.add('blue');
     document.querySelector('#turno').innerHTML = 'Gana el Azul';
@@ -133,8 +154,7 @@ const victoriaBlue = () => {
         casillas[i].disabled = true;
         casillas[i].style.cursor = 'default';
     }
-    sessionStorage.setItem('blue', (parseInt(sessionStorage.getItem('blue')) + 1));
-    document.querySelector('#blueScore').innerHTML = sessionStorage.getItem('blue');
+
     //game over
     localStorage.setItem('gameOver', true);
 }
@@ -156,6 +176,8 @@ const draw = () => {
 
 //game with bot
 export const gameBot = () => {
+    sessionStorage.setItem('RedWin', 0)
+    sessionStorage.setItem('BlueWin', 0)
     localStorage.setItem('gameOver', false);
     localStorage.setItem('tiroRed', true);
     localStorage.setItem('tiroBlue', false);
@@ -200,7 +222,9 @@ const eventBot = (columns, column) => {
                     //Evaluamos si el juego ya ha terminado
                     if (JSON.parse(localStorage.getItem('gameOver')) === false) {
                         //Creamos una funcion para que el bot tire
-                        tiroBot(columns);
+                        setTimeout(() => {
+                            tiroBot(columns);
+                        }, 200);
                     }
                 }
                 //"turno" bot - para el cambio del tiro
