@@ -34,9 +34,37 @@ header {
     min-height: 35px;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.easterEggBtn {
+    width: 4rem;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
+
+.EasteEggTitle {
+    margin: 1rem auto 0;
+    font-size: var(--body-text);
+}
+
+.txtEasteEgg {
+    margin: auto auto;
+    font-size: var(--subtitle);
+    font-weight: bold;
+}
+
 .title {
     color: white;
-    margin: auto auto;
+    margin: auto;
     font-size: var(--title);
 }
 
@@ -80,21 +108,39 @@ header {
 /*------------------Tablero----------------*/
 
 .container-tablero {
-    background-color: var(--backgorund-color-tablero);
-    margin: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem auto;
     height: 28rem;
-    box-shadow: var(--box-shadow);
+    /*sobra*/
+    background-color: var(--backgorund-color-tablero);
 }
 
 .tablero {
+    display: grid;
+    text-align: center;
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
     height: 100%;
-    width: 100%;
+    /* width: 100%;
     min-width: 280px;
+    max-width: 1000px;
+    margin: 0 auto; */
+    /*falta*/
     background-color: #d4d106;
+    box-shadow: var(--box-shadow);
 }
 
 .container-btn {
     display: flex;
+}
+
+.container-easterEgg {
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -132,7 +178,7 @@ header {
 .btn-start {
     margin: auto auto;
     width: 11rem;
-    height: 3.5rem;
+    height: 4rem;
     min-width: 93px;
     min-height: 28px;
     font-size: var(--details);
@@ -241,6 +287,8 @@ header {
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .container-score {

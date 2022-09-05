@@ -20,6 +20,9 @@ window.addEventListener('load', () => {
     //Para el puntaje actual
     document.querySelector('#redScore').innerHTML = sessionStorage.getItem('red');
     document.querySelector('#blueScore').innerHTML = sessionStorage.getItem('blue');
+    document.querySelector('#txtEasteEgg').style.display = 'none';
+    document.querySelector('#EasteEggTitle').style.display = 'none';
+
     //Para mostrar o no el boton de reiniciar el puntaje
     if (parseInt(sessionStorage.getItem('red')) > 0 || parseInt(sessionStorage.getItem('blue')) > 0) {
         document.querySelector('.container-btn-reboot').style.display = 'flex';
@@ -101,7 +104,17 @@ window.addEventListener('load', () => {
         window.location.reload();
     })
 
+    //EasterEgg
+    const easterEgg = document.querySelector('#easterEgg');
+    easterEgg.addEventListener('click', () => {
+        btnBot.style.display = 'none';
+        btnTwoPlayers.style.display = 'none';
+        document.querySelector('#tablero').classList.add('container-easterEgg');
+        document.querySelector('#txtEasteEgg').style.display = 'block';
+        document.querySelector('#txtEasteEgg').innerHTML = 'Te Amo Paola 💙';
+        document.querySelector('#EasteEggTitle').style.display = 'block';
 
+    })
 
 
 })
